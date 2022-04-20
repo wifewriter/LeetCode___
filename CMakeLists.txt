@@ -27,4 +27,4 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall -std=c++11")
 #aux_source_directory(. DIR_SRCS)
 
 # 指定生成目标
-add_executable(Leetcode LeetCode15.cpp)
+add_executable(Leetcode LeetCode16.cpp)
