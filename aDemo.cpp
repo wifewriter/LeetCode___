@@ -9,11 +9,11 @@ using namespace std;
 
 class Solution {
 public:
-
 };
 
 int main(){
-    Solution sol;
 
+    Solution sol;
+    cout<<sol
     return 0;
 }
