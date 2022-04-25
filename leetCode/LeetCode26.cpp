@@ -51,12 +51,18 @@ nums 已按 升序 排列
 #include <iostream>
 #include "string"
 #include <vector>
+#include <set>
 using namespace std;
 
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        
+        set<int> aa;
+        for(auto &i:nums){
+            aa.insert(i);
+        }
+        nums.assign(aa.begin(),aa.end());
+        return nums.size();
     }
 };
 int main(){

@@ -27,7 +27,7 @@ int main(){
 
     i=0;
     j=0;
-    while (i<firstStr.size() and j < secondeStr.size()){
+    while (j==-1 or (i<firstStr.size() and j < secondeStr.size())){
         if(j == -1 or firstStr[i] == secondeStr[j]){
             i++;
             j++;
