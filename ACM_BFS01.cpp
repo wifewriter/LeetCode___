@@ -143,7 +143,6 @@ int main() {
             road.pop();
             BFS(game, road, indexX, indexY, result);
         }
-
         res = res > result ? res : result;
         findXY(game, indexX, indexY);
     }
