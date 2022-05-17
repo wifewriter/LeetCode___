@@ -3,8 +3,12 @@
  *
  */
 #include <iostream>
-#include "string"
+#include <string>
 #include <vector>
+#include <unordered_map>
+#include <tuple>
+#include <stack>
+#include <list>
 using namespace std;
 
 class Solution {
