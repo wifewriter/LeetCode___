@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <tuple>
+#include <stack>
+#include <list>
 using namespace std;
 
 class Solution {
@@ -24,7 +27,7 @@ private:
             T2[board[j][i]] = true;
             return true;
         }
-            return false;
+        return false;
 
     }
     bool judgeBox(vector<vector<char>> &board,int indexT3x ,int indexT3y,unordered_map<char,int> &T3){
@@ -33,7 +36,7 @@ private:
             T3[board[indexT3x][indexT3y]] = true;
             return true;
         }
-            return false;
+        return false;
     }
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
@@ -61,8 +64,8 @@ public:
 };
 
 int main(){
-    vector<vector<char>> aa{{'5','.','3','.','7','.','.','.','.'},{'6','.','.','1','9','5','.','.','.'},{'.','9','8','.','.','.','.','6','.'},{'.','.','.','.','6','.','.','.','3'},{'4','.','.','8','.','3','.','.','1'},{'7','.','.','.','2','.','.','.','6'},{'.','6','.','.','.','.','2','8','.'},{'.','.','.','4','1','9','.','.','5'},{'.','.','.','.','8','.','.','7','9'}};
+
     Solution sol;
-    cout<<sol.isValidSudoku(aa);
+    cout<<sol
     return 0;
 }
