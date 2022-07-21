@@ -60,7 +60,9 @@ private:
 
             }
         }
+        return true;
     }
+
 public:
     void solveSudoku(vector<vector<char>>& board) {
         mySolveSudoKu(board);
