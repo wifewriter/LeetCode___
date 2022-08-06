@@ -14,8 +14,8 @@ message("PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
 message("EXECUTABLE_OUTPUT_PATH:${EXECUTABLE_OUTPUT_PATH}")
 
 # 生成debug版本
-#SET(CMAKE_BUILD_TYPE "release")
-SET(CMAKE_BUILD_TYPE "debug")
+SET(CMAKE_BUILD_TYPE "release")
+#SET(CMAKE_BUILD_TYPE "debug")
 if (CMAKE_BUILD_TYPE STREQUAL debug)
     add_definitions(-D_DEBUG)
 endif ()
@@ -33,6 +33,6 @@ aux_source_directory(
 
 # 指定生成目标
 add_executable(Leetcode
-#        leetCode/LeetCode729.cpp
-        test.cpp
+        leetCode/LeetCode729.cpp
+#        test.cpp
         )
