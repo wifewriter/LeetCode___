@@ -3,17 +3,24 @@
 #include <vector>
 using namespace std;
 
+class A{
+public:
+    A(){
+        cout<<"A constructor"<<endl;
+    };
+    ~A(){
+        cout <<"A destructor"<<endl;
+    };
+};
+
+void print(){
+    cout<<"123";
+}
+
 int main(){
-    vector<int> a{1,2,3,4,5,6,6,7,8,9,10};
-    for (auto i = a.begin();  i!=a.end() ;) {
-        if(*i == 6){
-           i =  a.erase(i);
-        } else{
-            i++;
-        }
-    }
-    for (auto &i:a) {
-        cout<<i<<" "<<endl;
-    }
+    char *a ;
+    float *b;
+    auto c = &print;
+    cout<<sizeof a<<" " << sizeof b << " " <<sizeof c<<endl;
     return 0;
 }
