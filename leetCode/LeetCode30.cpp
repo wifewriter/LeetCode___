@@ -40,6 +40,9 @@ words[i] 由小写英文字母组成
 #include <vector>
 #include <set>
 #include <unordered_map>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 /**
  * 超时
@@ -127,38 +130,94 @@ using namespace std;
 //作者：bei-ming-be
 //      链接：https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/solution/liang-ge-ha-xi-biao-by-bei-ming-be-5okc/
 
+//class Solution {
+//public:
+//    vector<int> findSubstring(string s, vector<string>& words) {
+//        int n = s.size();
+//        int m = words.size(),len=words[0].length();//len表示每个单词的长度
+//        int j = m*len; //单词连接后的字符总长度
+//        vector<int> ans;
+//        unordered_map<string,int> temp_1{};
+//        //temp_1记录words信息,key 为单词,value为出现次数
+//        for(string x:words){
+//            temp_1[x]++;
+//        }
+//        unordered_map<string,int> temp_2{};//记录当下的单词信息
+//        for(int start=0;start+j-1<n;start++){
+//            int k=start;//类似于一个指针，用于内层循环
+//            while(k-start<j){
+//                if(temp_1.count(s.substr(k,len))<=0 || temp_2[s.substr(k,len)]>=temp_1[s.substr(k,len)])break;
+//                temp_2[s.substr(k,len)]++;
+//                k+=len;
+//            }
+//            if(temp_1==temp_2) ans.emplace_back(start);
+//            temp_2.clear();
+//        }
+//        return ans;
+//    }
+//};
+
+//class Solution {
+//private:
+//    vector<int> res;
+//public:
+//    vector<int> findSubstring(string s, vector<string>& words) {
+//        vector<int> sVec(s.size(),-1);
+//        for (auto i = 0;i<words.size();i++){
+//            int beginIndex = 0;
+//            auto index = s.find(words[i],beginIndex);
+//            while(index < s.size()){
+//                sVec[index] = i;
+//                beginIndex += index+words[i].size();
+//                index = s.find(words[i],beginIndex);
+//            }
+//        }
+//        struct queNode{
+//            int index;
+//            int wordnum;
+//        };
+//        queue<queNode> que{};
+//        for (int i = 0; i < sVec.size(); ++i) {
+//            if(sVec[i] != -1){
+//                que.push({i,sVec[i]});
+//                if(que.size() == words.size()){
+//                    vector<int> tt(words.size(),-1);
+//                    for (int j = 0; j < que.size(); ++j) {
+//                        auto num = que.front();
+//                        que.pop();
+//                        tt[num.wordnum] = 1;
+//                        que.push(num);
+//                    }
+//                    auto min = *std::min_element(tt.begin(), tt.end());
+//                    if (min > -1) {
+//                        res.emplace_back(que.front().index);
+//                    } else {
+//                    }
+//                    que.pop();
+//                }
+//            }
+//        }
+//        return res;
+//    }
+//};
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
-        int n = s.size();
-        int m = words.size(),len=words[0].length();//len表示每个单词的长度
-        int j = m*len; //单词连接后的字符总长度
-        vector<int> ans;
-        unordered_map<string,int> temp_1{};
-        //temp_1记录words信息,key 为单词,value为出现次数
-        for(string x:words){
-            temp_1[x]++;
-        }
-        unordered_map<string,int> temp_2{};//记录当下的单词信息
-        for(int start=0;start+j-1<n;start++){
-            int k=start;//类似于一个指针，用于内层循环
-            while(k-start<j){
-                if(temp_1.count(s.substr(k,len))<=0 || temp_2[s.substr(k,len)]>=temp_1[s.substr(k,len)])break;
-                temp_2[s.substr(k,len)]++;
-                k+=len;
+        vector<vector<int>> map{};
+        for (auto i =0;i<words.size();i++){
+            int index = 0;
+            while(index < s.size()){
+                auto tt = s.find(words[i],index);
+                map[i].emplace_back(tt);
+                index += tt + words[i].size();
             }
-            if(temp_1==temp_2) ans.emplace_back(start);
-            temp_2.clear();
         }
-        return ans;
     }
 };
 
-
-
 int main(){
-    string s = "foobarfoobar";
-    vector<string> aa = {"foo","bar"};
+    string s = "wordgoodgoodgoodbestword";
+    vector<string> aa = {"word","good","best","good"};
     Solution sol;
     auto c = sol.findSubstring(s,aa);
     return 0;
