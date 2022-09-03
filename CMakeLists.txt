@@ -33,7 +33,9 @@ aux_source_directory(
 
 # 指定生成目标
 add_executable(Leetcode
-#        leetCode/LeetCode729.cpp
-        test.cpp
+#        leetCode/LeetCode406.cpp
+#        shenxinfu02.cpp
+        code/mt090304.cpp
+#        code/mt03.cpp
 #        ACM/acm_mihayou02.cpp
         )
