@@ -32,4 +32,8 @@ aux_source_directory(
         DIR_SRCS_ACM)
 
 # 指定生成目标
-add_executable(Leetcode leetCode/LeetCode30.cpp)
+add_executable(
+        Leetcode
+        leetCode/LeetCode895.cpp
+#        test2.cpp
+        )
