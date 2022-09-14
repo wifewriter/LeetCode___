@@ -34,6 +34,6 @@ aux_source_directory(
 # 指定生成目标
 add_executable(
         Leetcode
-        leetCode/LeetCode895.cpp
-#        test2.cpp
+#        leetCode/LeetCode61.cpp
+        test.cpp
         )
